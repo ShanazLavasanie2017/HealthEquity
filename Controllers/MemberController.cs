@@ -17,11 +17,11 @@ namespace HealthEquity.Controllers
     public class MemberController : ControllerBase
     {
         private readonly IRepositoryMember _repositoryMember;
-        //private readonly IMapper _mapper;
-        public MemberController(IRepositoryMember repositoryMember)
+        private readonly IMapper _mapper;
+        public MemberController(IRepositoryMember repositoryMember, IMapper mapper)
         {
             _repositoryMember = repositoryMember;
-            //_mapper = mapper;
+            _mapper = mapper;
 
         }
       
@@ -32,17 +32,8 @@ namespace HealthEquity.Controllers
         {
             var result = await _repositoryMember.GetMemberById(MemberId);
             if (result == null) return NotFound();
-            var curMember = new MemberModel()
-            {
-                MemberId = result.MemberId,
-                Email = result.Email,
-                FirstName = result.FirstName,
-                LastName = result.LastName,
-                PhoneNumber = result.PhoneNumber
-
-            };
-            return curMember;
-            //return _mapper.Map<MemberModel>(result);
+         
+            return _mapper.Map<MemberModel>(result);
         }
       
 
@@ -62,7 +53,7 @@ namespace HealthEquity.Controllers
             }
             else
             {
-                return BadRequest("Failed to update Spot");
+                return BadRequest("Failed to update Member");
             }
             
         }

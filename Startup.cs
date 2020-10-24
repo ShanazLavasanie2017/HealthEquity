@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using HealthEquity.Data.Mapper;
 using Microsoft.OpenApi.Models;
 
+
 namespace HealthEquity
 {
     public class Startup
@@ -42,12 +43,8 @@ namespace HealthEquity
                 c.SwaggerDoc("v1",
                  new OpenApiInfo { Title = "my api", Version = "v1" });
             });
-            //var mappingConfig = new MapperConfiguration(mc =>
-            //{
-            //    mc.AddProfile(new MemberProfile());
-            //});
-            //IMapper mapper = mappingConfig.CreateMapper();
-            //services.AddSingleton(mapper);
+            
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddScoped<IRepositoryMember, RepositoryMember>();

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthEquity", "HealthEquity.csproj", "{C397055C-0799-4677-91F0-3C32B6896578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthEquity", "HealthEquity.csproj", "{C397055C-0799-4677-91F0-3C32B6896578}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHealthEquity", "..\TestHealthEquity\TestHealthEquity.csproj", "{DD64ABF2-E7BC-4703-A8F8-982399C793C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C397055C-0799-4677-91F0-3C32B6896578}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C397055C-0799-4677-91F0-3C32B6896578}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C397055C-0799-4677-91F0-3C32B6896578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD64ABF2-E7BC-4703-A8F8-982399C793C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD64ABF2-E7BC-4703-A8F8-982399C793C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD64ABF2-E7BC-4703-A8F8-982399C793C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD64ABF2-E7BC-4703-A8F8-982399C793C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
