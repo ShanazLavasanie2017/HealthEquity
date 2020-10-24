@@ -16,7 +16,8 @@ using HealthEquity.Data;
 using Microsoft.EntityFrameworkCore;
 using HealthEquity.Data.Mapper;
 using Microsoft.OpenApi.Models;
-
+using static AutoMapper.Internal.ExpressionFactory;
+using HealthEquity.Models;
 
 namespace HealthEquity
 {
@@ -43,7 +44,14 @@ namespace HealthEquity
                 c.SwaggerDoc("v1",
                  new OpenApiInfo { Title = "my api", Version = "v1" });
             });
-            
+            //var mappingConfig = new MapperConfiguration(mc =>
+            //{
+            //    mc.AddProfile(new MemberProfile());
+            //});
+            //IMapper mapper = mappingConfig.CreateMapper();
+            //services.AddSingleton(mapper);
+
+           
             services.AddAutoMapper(typeof(Startup));
 
             services.AddMvc(options => options.EnableEndpointRouting = false);

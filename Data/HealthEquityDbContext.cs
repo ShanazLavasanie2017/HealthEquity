@@ -15,6 +15,7 @@ namespace HealthEquity.Data
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
             CreateSeedMember(builder);
         }
 

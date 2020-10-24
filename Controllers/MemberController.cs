@@ -31,22 +31,25 @@ namespace HealthEquity.Controllers
         public async Task<ActionResult<MemberModel>> Get(int MemberId)
         {
             var result = await _repositoryMember.GetMemberById(MemberId);
+            
             if (result == null) return NotFound();
-         
+ 
             return _mapper.Map<MemberModel>(result);
         }
       
 
         // PUT api/<MemberController>/5
         [HttpPut("Contact/{MemberId:int}")]
-        public async Task<ActionResult<string>> UpdateMember(int MemberId, Member modifiedMember)
+        public async Task<ActionResult<string>> UpdateMember(int MemberId, MemberModel modifiedMember)
         {
             var result = await _repositoryMember.GetMemberById(MemberId);
             if (result == null) return NotFound();
-            result.FirstName = modifiedMember.FirstName;
-            result.LastName = modifiedMember.LastName;
-            result.PhoneNumber = modifiedMember.PhoneNumber;
-            result.Email = modifiedMember.Email;
+
+            //result.FirstName = modifiedMember.FirstName;
+            //result.LastName = modifiedMember.LastName;
+            //result.PhoneNumber = modifiedMember.PhoneNumber;
+            //result.Email = modifiedMember.Email;
+            _mapper.Map(modifiedMember, result);
             if (await _repositoryMember.SaveChangesAsync())
             {
                 return await Task.FromResult("Update was Successful");
