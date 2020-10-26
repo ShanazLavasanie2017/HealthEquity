@@ -45,11 +45,9 @@ namespace HealthEquity.Controllers
             var result = await _repositoryMember.GetMemberById(MemberId);
             if (result == null) return NotFound();
 
-            //result.FirstName = modifiedMember.FirstName;
-            //result.LastName = modifiedMember.LastName;
-            //result.PhoneNumber = modifiedMember.PhoneNumber;
-            //result.Email = modifiedMember.Email;
-            _mapper.Map(modifiedMember, result);
+            if (string.IsNullOrEmpty(modifiedMember.FirstName) || string.IsNullOrEmpty(modifiedMember.LastName))
+                return await Task.FromResult("Failed to update Member");
+             _mapper.Map(modifiedMember, result);
             if (await _repositoryMember.SaveChangesAsync())
             {
                 return await Task.FromResult("Update was Successful");
